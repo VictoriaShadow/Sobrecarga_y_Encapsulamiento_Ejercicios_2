@@ -15,9 +15,7 @@ if (respuestaCajaAutomatica.ToUpper() == "S")
 {
     cajaAutomatica = false;
 }
-Automovil auto1 = new Automovil();
-auto1.Marca = marca;
-auto1.CajaAutomatica= cajaAutomatica;
+Automovil auto1 = new Automovil(marca, cajaAutomatica);
 while (true)
 {
 

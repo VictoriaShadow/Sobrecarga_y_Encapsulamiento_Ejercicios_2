@@ -11,14 +11,10 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
         private int _velocidadActual;
         private bool _cajaAutomatica;
         private bool _modoCrucero;
-        public string Marca
+        public Automovil(string marca, bool cajaAutomatica)
         {
-            get { return _marca; }
-            set
-            {
-                if (value != null)
-                    _marca = value;
-            }
+            _marca = marca;
+            _cajaAutomatica = cajaAutomatica;
         }
         public bool MotorEncendido
         {
@@ -45,12 +41,6 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
                     _velocidadActual = value;
                 }
             } }
-        public bool CajaAutomatica
-        {
-            get { return _cajaAutomatica; }
-            set {
-                _cajaAutomatica = value;
-            }
         }
         public bool ModoCrucero
         {
