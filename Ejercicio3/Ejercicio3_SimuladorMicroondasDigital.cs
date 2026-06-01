@@ -11,6 +11,14 @@ namespace Ejercicio_3_sobrecarga_y_encapsulamiento
         private bool _puertaAbierta;
         private bool _enFuncionamiento;
 
+        public Microondas(int potencia, int tiempoSegundos)
+        {
+            _potencia = potencia;
+            _tiempoSegundos = tiempoSegundos;
+            _puertaAbierta = false;
+            _enFuncionamiento = false;
+        }
+
         public int Potencia
         {
             get { return _potencia; }
