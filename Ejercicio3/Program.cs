@@ -3,9 +3,7 @@ Console.WriteLine("Ingrese la potencia: ");
 int potencia = int.Parse(Console.ReadLine());
 Console.WriteLine("Ingrese el tiempo (en segundos)");
 int tiempoSegundos = int.Parse(Console.ReadLine());
-Microondas microondas1 = new Microondas();
-microondas1.Potencia = potencia;
-microondas1.TiempoSegundos = tiempoSegundos;
+Microondas microondas1 = new Microondas(potencia, tiempoSegundos);
 
 while (true)
 {
