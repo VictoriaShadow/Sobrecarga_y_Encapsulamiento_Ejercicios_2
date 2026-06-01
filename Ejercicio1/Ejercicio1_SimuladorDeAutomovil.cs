@@ -11,10 +11,25 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
         private int _velocidadActual;
         private bool _cajaAutomatica;
         private bool _modoCrucero;
+        public string Marca
+
         public Automovil(string marca, bool cajaAutomatica)
         {
             _marca = marca;
             _cajaAutomatica = cajaAutomatica;
+           _motorEncendido = false;
+           _velocidadActual = 0;
+            _modoCrucero = false;
+        }
+
+        public string Marca
+        {
+            get { return _marca; }
+            set
+            {
+                if (value != null)
+                    _marca = value;
+            }
         }
         public bool MotorEncendido
         {
@@ -41,6 +56,12 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
                     _velocidadActual = value;
                 }
             } }
+        public bool CajaAutomatica
+        {
+            get { return _cajaAutomatica; }
+            set {
+                _cajaAutomatica = value;
+            }
         }
         public bool ModoCrucero
         {
@@ -54,7 +75,7 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
                     Console.WriteLine("Se ha ingresado al modo crucero");
                 } else
                 {
-                    Console.WriteLine("Se debe tener el motor encendido y superar los 60 km/h para entrar al modo crucero");
+                    Console.WriteLine("Se debe tener el motor encendido y superar los 60 km/h");
                 }
             }
         }
