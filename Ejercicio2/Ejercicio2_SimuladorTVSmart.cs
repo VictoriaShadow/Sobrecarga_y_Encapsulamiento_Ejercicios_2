@@ -13,6 +13,16 @@ namespace Ejercicio_2_sobrecarga_y_encapsulamiento
         private int _volumen;
         private bool _esPremium;
 
+        public SmartTV(string marca, int pulgadas, bool esPremium)
+        {
+            _marca = marca;
+            _pulgadas = pulgadas;
+            _esPremium = esPremium;
+            _encendido = false;
+            _canalActual = 1;
+            _volumen = 20;
+        } 
+
         public string Marca
         {
             get { return _marca; }
