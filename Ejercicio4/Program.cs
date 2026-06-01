@@ -1,4 +1,4 @@
-﻿using Ejercicio_4_sobrecarga_y_encapsulamiento;
+﻿﻿using Ejercicio_4_sobrecarga_y_encapsulamiento;
 Console.WriteLine("Ingrese nombre del sector");
 string nombreSector = Console.ReadLine();
 Console.WriteLine("Ingrese tipo de cultivo");
@@ -7,11 +7,7 @@ Console.WriteLine("Ingrese temperatura del sector");
 int temperaturaSector = int.Parse(Console.ReadLine());
 Console.WriteLine("Ingrese humedad del sector");
 int humedadSector = int.Parse(Console.ReadLine());
-Invernadero invernadero1 = new Invernadero();
-invernadero1.NombreSector = nombreSector;
-invernadero1.TipoCultivo = tipoCultivo;
-invernadero1.TemperaturaActual = temperaturaSector;
-invernadero1.HumedadSuelo = humedadSector;
+Invernadero invernadero1 = new Invernadero(nombreSector, tipoCultivo, temperaturaSector, humedadSector);
 
 while (true)
 {

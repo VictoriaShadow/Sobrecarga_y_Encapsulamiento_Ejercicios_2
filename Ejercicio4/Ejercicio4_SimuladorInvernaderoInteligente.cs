@@ -13,6 +13,16 @@ namespace Ejercicio_4_sobrecarga_y_encapsulamiento
         private bool _calefaccionActiva;
         private string _tipoCultivo;
 
+        public Invernadero(string nombreSector, string tipoCultivo, int temperaturaActual, int humedadSuelo)
+        {
+            NombreSector = nombreSector;
+            TipoCultivo = tipoCultivo;
+            TemperaturaActual = temperaturaActual;
+            HumedadSuelo = humedadSuelo;
+            _sistemaRiegoActivo = false;
+            _calefaccionActiva = false;
+        }
+
         public string NombreSector
         {
             get { return _nombreSector; }
