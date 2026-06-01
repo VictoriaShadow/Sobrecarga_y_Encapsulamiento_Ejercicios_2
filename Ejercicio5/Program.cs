@@ -1,10 +1,10 @@
 ﻿using Ejercicio_5_sobrecarga_y_encapsulamiento;
 Console.WriteLine("Ingrese el porcentaje de bateria: ");
 int bateria = int.Parse(Console.ReadLine());
-Batería bateria1 = new Batería();
-bateria1.PorcentajeCarga = bateria;
+Console.WriteLine("Ingrese la salud de la batería:");
+int saludBateria = int.Parse(Console.ReadLine()); 
+Batería bateria1 = new Batería(bateria, saludBateria );
 
-bateria1.SaludBateria = 100;
 while (true)
 {
     Console.Clear();
@@ -53,4 +53,3 @@ while (true)
     Console.WriteLine("\nSeleccione cualquier letra para continuar");
     Console.ReadKey();
 }
-

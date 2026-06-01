@@ -11,6 +11,14 @@ namespace Ejercicio_5_sobrecarga_y_encapsulamiento
         private bool _conectadoCargador;
         private bool _modoAhorroEnergia;
 
+        public Batería(int bateria, int saludBateria)
+        {
+            _porcentajeCarga = bateria;
+            _saludBateria = saludBateria;
+            _conectadoCargador = false;
+            _modoAhorroEnergia = false;
+        }
+
         public int PorcentajeCarga
         {
             get { return _porcentajeCarga; }
