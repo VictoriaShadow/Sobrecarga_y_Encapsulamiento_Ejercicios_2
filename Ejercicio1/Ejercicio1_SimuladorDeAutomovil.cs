@@ -11,14 +11,14 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
         private int _velocidadActual;
         private bool _cajaAutomatica;
         private bool _modoCrucero;
-        public string Marca
 
+        // Constructor
         public Automovil(string marca, bool cajaAutomatica)
         {
             _marca = marca;
             _cajaAutomatica = cajaAutomatica;
-           _motorEncendido = false;
-           _velocidadActual = 0;
+            _motorEncendido = false;
+            _velocidadActual = 0;
             _modoCrucero = false;
         }
 
@@ -27,25 +27,32 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
             get { return _marca; }
             set
             {
-                if (value != null)
+                if (!string.IsNullOrWhiteSpace(value))
+                {
                     _marca = value;
+                }
             }
         }
+
+        // Propiedad MotorEncendido
         public bool MotorEncendido
         {
             get { return _motorEncendido; }
             set
             {
                 _motorEncendido = value;
+
                 if (_motorEncendido)
                 {
-                    Console.WriteLine("Motor Encendido");
-                } else
+                    Console.WriteLine("Motor encendido");
+                }
+                else
                 {
-                    Console.WriteLine("Motor Apagado");
+                    Console.WriteLine("Motor apagado");
                 }
             }
         }
+
         public int VelocidadActual
         {
             get { return _velocidadActual; }
@@ -55,35 +62,52 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
                 {
                     _velocidadActual = value;
                 }
-            } }
+            }
+        }
+
         public bool CajaAutomatica
         {
             get { return _cajaAutomatica; }
-            set {
+            set
+            {
                 _cajaAutomatica = value;
             }
         }
+
         public bool ModoCrucero
         {
             get { return _modoCrucero; }
             set
             {
-                if (_motorEncendido && _velocidadActual > 60)
+                if (_motorEncendido && _velocidadActual >= 60)
                 {
                     _modoCrucero = value;
-                    Console.WriteLine("Ingresando a modo crucero....");
-                    Console.WriteLine("Se ha ingresado al modo crucero");
-                } else
+                    Console.WriteLine("Ingresando a modo crucero...");
+                    Console.WriteLine("Modo crucero activado");
+                }
+                else
                 {
-                    Console.WriteLine("Se debe tener el motor encendido y superar los 60 km/h");
+                    Console.WriteLine("Debe tener el motor encendido y al menos 60 km/h");
                 }
             }
         }
-        public string Identificador {
-            get {
+
+        public string Identificador
+        {
+            get
+            {
                 string identificador = "";
-                identificador += _marca.Substring(0, 3).ToUpper();
-                if (_cajaAutomatica == true)
+
+                if (_marca.Length >= 3)
+                {
+                    identificador += _marca.Substring(0, 3).ToUpper();
+                }
+                else
+                {
+                    identificador += _marca.ToUpper();
+                }
+
+                if (_cajaAutomatica)
                 {
                     identificador += "-AUTO-";
                 }
@@ -91,21 +115,33 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
                 {
                     identificador += "-MAN-";
                 }
+
                 identificador += DateTime.Now.Year;
+
                 return identificador;
-            } 
+            }
         }
+
         public void EncenderApagar()
         {
             _motorEncendido = !_motorEncendido;
-            if (!_motorEncendido)
+
+            if (_motorEncendido)
+            {
+                Console.WriteLine("Motor encendido");
+            }
+            else
             {
                 _velocidadActual = 0;
+                _modoCrucero = false;
+                Console.WriteLine("Motor apagado");
             }
         }
+
         public void Acelerar(int km)
         {
-            int velocidadMaxima = 0;
+            int velocidadMaxima;
+
             if (_cajaAutomatica)
             {
                 velocidadMaxima = 220;
@@ -114,49 +150,40 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
             {
                 velocidadMaxima = 180;
             }
-            if (_motorEncendido == true)
+
+            if (_motorEncendido)
             {
-               _velocidadActual += km;
+                _velocidadActual += km;
+
                 if (_velocidadActual > velocidadMaxima)
                 {
                     _velocidadActual = velocidadMaxima;
                 }
-            } else
+            }
+            else
             {
                 Console.WriteLine("No se puede acelerar con el motor apagado");
             }
         }
+
+
         public void Acelerar()
         {
-            int velocidadMaxima = 0;
-            if (_cajaAutomatica)
-            {
-                velocidadMaxima = 220;
-            } else
-            {
-                velocidadMaxima = 180;
-            }
-            if (_motorEncendido == true)
-            {
-                _velocidadActual += 10;
-                if (_velocidadActual > velocidadMaxima)
-                {
-                    _velocidadActual = velocidadMaxima;
-                }
-            }
-            else
-            {
-                Console.WriteLine("No se puede acelerar con el motor apagado");
-            }
+            Acelerar(10);
         }
+
+        // Frenar con parámetro
         public void Frenar(int km)
         {
             if (_motorEncendido)
             {
-            _velocidadActual -= km;
-            if (_velocidadActual < 0) {
-                _velocidadActual = 0;
+                _velocidadActual -= km;
+
+                if (_velocidadActual < 0)
+                {
+                    _velocidadActual = 0;
                 }
+
                 _modoCrucero = false;
             }
             else
@@ -164,9 +191,10 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
                 Console.WriteLine("No se puede frenar con el motor apagado");
             }
         }
+
         public void Frenar()
         {
-            if (_motorEncendido == true)
+            if (_motorEncendido)
             {
                 _velocidadActual = 0;
                 _modoCrucero = false;

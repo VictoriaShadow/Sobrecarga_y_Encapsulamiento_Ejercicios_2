@@ -14,10 +14,7 @@ else
 {
     planPremium = false;
 }
-SmartTV tv1 = new SmartTV();
-tv1.Marca = marca;
-tv1.Pulgadas = pulgadas;
-tv1.EsPremium = planPremium;
+SmartTV tv1 = new SmartTV(marca, pulgadas, planPremium);
 
 while (true)
 {
