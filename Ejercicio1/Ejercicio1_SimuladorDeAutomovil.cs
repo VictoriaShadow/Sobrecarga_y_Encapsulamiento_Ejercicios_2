@@ -12,7 +12,6 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
         private bool _cajaAutomatica;
         private bool _modoCrucero;
 
-        // Constructor
         public Automovil(string marca, bool cajaAutomatica)
         {
             _marca = marca;
@@ -34,7 +33,6 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
             }
         }
 
-        // Propiedad MotorEncendido
         public bool MotorEncendido
         {
             get { return _motorEncendido; }
@@ -166,13 +164,11 @@ namespace Ejercicio_1_sobrecarga_y_encapsulamiento
             }
         }
 
-
         public void Acelerar()
         {
             Acelerar(10);
         }
 
-        // Frenar con parámetro
         public void Frenar(int km)
         {
             if (_motorEncendido)
